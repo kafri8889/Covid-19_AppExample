@@ -40,7 +40,9 @@ class MainActivity : AppCompatActivity() {
 
         navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
+                R.id.instagram_MenuNavview -> {
 
+                }
             }
 
             return@setNavigationItemSelectedListener true
