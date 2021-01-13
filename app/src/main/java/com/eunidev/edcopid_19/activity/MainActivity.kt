@@ -38,6 +38,14 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
 
+        navigationView.setNavigationItemSelectedListener {
+            when (it.itemId) {
+
+            }
+
+            return@setNavigationItemSelectedListener true
+        }
+
 //        lifecycleScope.launch {
 //            covidAPI = APIInit.createApi()
 //
