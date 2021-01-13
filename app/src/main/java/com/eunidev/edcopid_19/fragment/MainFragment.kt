@@ -33,13 +33,16 @@ class MainFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var fetched_province = false
 
     private lateinit var spinner: Spinner
     private lateinit var tvPositif: TextView
     private lateinit var tvSembuh: TextView
     private lateinit var tvMeninggal: TextView
+    private lateinit var tvPositifIndonesia: TextView
+    private lateinit var tvSembuhIndonesia: TextView
+    private lateinit var tvMeninggalIndonesia: TextView
     private lateinit var provinceData: ArrayList<CovidModel.ParentCIP>
+    private lateinit var indonesiaData: ArrayList<CovidModel.CovidIndonesia>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,8 +57,11 @@ class MainFragment : Fragment() {
 
         spinner = v.findViewById(R.id.spinnerProvince_MainFragment)
         tvPositif = v.findViewById(R.id.tvPositif_MainFragment)
+        tvPositifIndonesia = v.findViewById(R.id.tvPositifIndonesia_MainFragment)
         tvSembuh = v.findViewById(R.id.tvSembuh_MainFragment)
+        tvSembuhIndonesia = v.findViewById(R.id.tvSembuhIndonesia_MainFragment)
         tvMeninggal = v.findViewById(R.id.tvMeninggal_MainFragment)
+        tvMeninggalIndonesia = v.findViewById(R.id.tvMeninggalIndonesia_MainFragment)
 
         provinceData = ArrayList()
 
@@ -71,14 +77,11 @@ class MainFragment : Fragment() {
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val selected = spinner.selectedItem.toString().toLowerCase(Locale.ROOT).replace("_".toRegex(), " ")
-                if (fetched_province) {
-                    //Toast.makeText(activity, provinceData.size.toString(), Toast.LENGTH_SHORT).show();
-                    provinceData.forEach {
-                        if (it.attributes.province.toLowerCase(Locale.ROOT).replace("\\s".toRegex(), " ") == selected) {
-                            tvSembuh.text = it.attributes.getWell.toString()
-                            tvPositif.text = it.attributes.positive.toString()
-                            tvMeninggal.text = it.attributes.death.toString()
-                        }
+                provinceData.forEach {
+                    if (it.attributes.province.toLowerCase(Locale.ROOT).replace("\\s".toRegex(), " ") == selected) {
+                        tvSembuh.text = it.attributes.getWell.toString()
+                        tvPositif.text = it.attributes.positive.toString()
+                        tvMeninggal.text = it.attributes.death.toString()
                     }
                 }
             }
@@ -89,7 +92,30 @@ class MainFragment : Fragment() {
         }
     }
 
-    fun fetchProvinceData() {
+    private fun fetchIndonesiaData() {
+        lifecycleScope.launch {
+            val covidAPI = APIInit.createApi()
+
+            covidAPI.getIndonesiaData().enqueue(object : Callback<List<CovidModel.CovidIndonesia>> {
+                override fun onResponse(call: Call<List<CovidModel.CovidIndonesia>>, response: Response<List<CovidModel.CovidIndonesia>>) {
+                    if (response == null) {
+                        Toast.makeText(activity, "respone is null (no data)", Toast.LENGTH_LONG).show()
+                    } else {
+                        response.body()!!.forEach {
+                            indonesiaData.add(it)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<CovidModel.CovidIndonesia>>, t: Throwable) {
+                    Log.e("Retrofit", t.message!!)
+                    Toast.makeText(activity, t.message, Toast.LENGTH_LONG).show()
+                }
+            })
+        }
+    }
+
+    private fun fetchProvinceData() {
         lifecycleScope.launch {
             val covidAPI = APIInit.createApi()
 
@@ -102,7 +128,6 @@ class MainFragment : Fragment() {
                             response.body()?.forEach {
                                 provinceData.add(it)
                             }
-                            fetched_province = true
                         } else {
                             Toast.makeText(activity, "respone not successfull", Toast.LENGTH_LONG).show()
                         }

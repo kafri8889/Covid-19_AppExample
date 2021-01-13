@@ -2,11 +2,51 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/instagram_MenuNavview"
-        android:title="Instagram"/>
+        android:id="@+id/globalData_MenuNavview"
+        android:icon="@drawable/ic_global"
+        android:title="Global Data"/>
 
     <item
-        android:id="@+id/reportbug_MenuNavview"
-        android:title="Report Bug"/>
+        android:id="@+id/apiSource_Menu_Navview"
+        android:icon="@drawable/ic_api_34"
+        android:title="API Source"/>
+
+    <group android:id="@+id/groupSocial_MenuNavview" android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/instagram_MenuNavview"
+            android:icon="@drawable/ic_instagram_logo"
+            android:title="Instagram"/>
+
+        <item
+            android:id="@+id/github_MenuNavview"
+            android:icon="@drawable/ic_github"
+            android:title="GitHub"/>
+
+    </group>
+
+    <group android:id="@+id/feedbackGroup_MenuNavview" android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/reportbug_MenuNavview"
+            android:icon="@drawable/ic_bug_report_34"
+            android:title="Report Bug"/>
+
+    </group>
+
+    <group android:id="@+id/otherGroup_MenuNavview" android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/settings_MenuNavview"
+            android:icon="@drawable/ic_settings_34"
+            android:title="Settings"/>
+
+        <item
+            android:id="@+id/exitApp_MenuNavview"
+            android:icon="@drawable/ic_exit_to_app_34"
+            android:title="Exit App"/>
+
+    </group>
+
 
 </menu>
