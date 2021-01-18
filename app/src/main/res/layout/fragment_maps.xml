@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.MapsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvCountryRegion_MapsActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Country Region: "
+                android:layout_margin="24dp"
+                android:textColor="@color/soft_black"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvLastUpdate_MapsActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Update: "
+                android:layout_margin="24dp"
+                android:textColor="@color/soft_black"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCountryRegion_MapsActivity" />
+
+            <TextView
+                android:id="@+id/tvLatitude_MapsActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Latitude: "
+                android:layout_margin="24dp"
+                android:textColor="@color/soft_black"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLastUpdate_MapsActivity" />
+
+            <TextView
+                android:id="@+id/tvLongitude_MapsActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Longitude: "
+                android:layout_margin="24dp"
+                android:textColor="@color/soft_black"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLatitude_MapsActivity" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewConfirmed_MapsActivity"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="4dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginEnd="34dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLongitude_MapsActivity">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_cardview_positif"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Total Confirmed"
+                        android:textColor="@color/soft_black"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:id="@+id/tvConfirmed_MapsActivity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="0"
+                        android:textColor="@color/soft_black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewRecovery_MapsActivity"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginEnd="34dp"
+                android:backgroundTint="@color/sembuh"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardViewConfirmed_MapsActivity">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_cardview_sembuh"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Total Recovered"
+                        android:textColor="@color/soft_black"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:id="@+id/tvRecovered_MapsActivity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="0"
+                        android:textColor="@color/soft_black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewMeninggal_MapsActivity"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginEnd="34dp"
+                android:backgroundTint="@color/death"
+                app:layout_constraintTop_toBottomOf="@id/cardViewRecovery_MapsActivity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_cardview_death"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Total Deaths"
+                        android:textColor="@color/soft_black"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:id="@+id/tvDeaths_MapsActivity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="0"
+                        android:textColor="@color/soft_black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="310dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardViewMeninggal_MapsActivity" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</FrameLayout>

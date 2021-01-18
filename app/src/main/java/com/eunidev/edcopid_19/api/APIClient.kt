@@ -6,12 +6,12 @@ import retrofit2.http.GET
 
 interface APIClient {
 
+    @GET("/")
+    fun getGlobalData(): Call<List<CovidModel.ParentCG>>
+
     @GET("/indonesia")
     fun getIndonesiaData(): Call<List<CovidModel.CovidIndonesia>>
 
     @GET("/indonesia/provinsi")
-    fun getProvinceData(): Call<List<CovidModel.CovidIndonesiaProvinsi>>
-
-    @GET("/indonesia/provinsi")
-    fun getProvinceData2(): Call<List<CovidModel.ParentCIP>>
+    fun getProvinceData(): Call<List<CovidModel.ParentCIP>>
 }

@@ -10,9 +10,12 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.eunidev.edcopid_19.MapsActivity
 import com.eunidev.edcopid_19.R
 import com.eunidev.edcopid_19.databinding.ActivityMainBinding
+import com.eunidev.edcopid_19.fragment.GlobalDataFragment
 import com.eunidev.edcopid_19.fragment.MainFragment
+import com.eunidev.edcopid_19.model_data.CovidModel
 import com.google.android.material.navigation.NavigationView
 import kotlin.system.exitProcess
 
@@ -65,7 +68,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.globalData_MenuNavview -> {
-                    // Global Data
+                    changeFragment(GlobalDataFragment.newInstance("gd", "gd"))
+                }
+
+                R.id.dashBoard_MenuNavview -> {
+                    changeFragment(MainFragment.newInstance("mf", "mf"))
                 }
 
                 R.id.settings_MenuNavview -> {
@@ -94,7 +101,15 @@ class MainActivity : AppCompatActivity() {
         drawerLayout = binding.drawerLayout
         navigationView = binding.navigationView
 
-        changeFragment(MainFragment.newInstance("s", "s"))
+        changeFragment(MainFragment.newInstance("mf", "mf"))
+    }
+
+    fun showInfoCountry(data: CovidModel.ParentCG) {
+        val i = Intent(applicationContext, MapsActivity::class.java)
+        i.putExtra("copidData", data)
+
+        startActivity(i)
+        finish()
     }
 
     fun changeFragment(f: Fragment) {

@@ -12,7 +12,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/linearLayoutProvince_NU_MainFragment"
@@ -49,13 +49,14 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewPositif_MainFragment"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="120dp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="4dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginEnd="34dp"
                 app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/linearLayoutProvince_NU_MainFragment">
 
@@ -72,7 +73,7 @@
                         android:layout_marginTop="8dp"
                         android:text="Total Positif"
                         android:textColor="@color/soft_black"
-                        android:textSize="24sp" />
+                        android:textSize="22sp" />
 
                     <TextView
                         android:id="@+id/tvPositif_MainFragment"
@@ -81,7 +82,7 @@
                         android:layout_marginTop="10dp"
                         android:text="0"
                         android:textColor="@color/soft_black"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -90,14 +91,15 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewSembuh_MainFragment"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="120dp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
                 android:layout_marginTop="16dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginEnd="34dp"
                 android:backgroundTint="@color/sembuh"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cardViewPositif_MainFragment">
 
@@ -114,7 +116,7 @@
                         android:layout_marginTop="8dp"
                         android:text="Total Sembuh"
                         android:textColor="@color/soft_black"
-                        android:textSize="24sp" />
+                        android:textSize="22sp" />
 
                     <TextView
                         android:id="@+id/tvSembuh_MainFragment"
@@ -123,7 +125,7 @@
                         android:layout_marginTop="10dp"
                         android:text="0"
                         android:textColor="@color/soft_black"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -132,13 +134,13 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewMeninggal_MainFragment"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="120dp"
                 app:cardCornerRadius="5dp"
                 app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
                 android:layout_marginTop="16dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginEnd="34dp"
                 android:backgroundTint="@color/death"
                 app:layout_constraintTop_toBottomOf="@id/cardViewSembuh_MainFragment"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -157,7 +159,7 @@
                         android:layout_marginTop="8dp"
                         android:text="Total Meninggal"
                         android:textColor="@color/soft_black"
-                        android:textSize="24sp" />
+                        android:textSize="22sp" />
 
                     <TextView
                         android:id="@+id/tvMeninggal_MainFragment"
@@ -166,7 +168,7 @@
                         android:layout_marginTop="10dp"
                         android:text="0"
                         android:textColor="@color/soft_black"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -180,10 +182,10 @@
                 app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
                 android:layout_marginTop="36dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="18dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginEnd="34dp"
                 android:backgroundTint="@color/death"
-                android:paddingBottom="15dp"
+                android:paddingBottom="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cardViewMeninggal_MainFragment"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -202,7 +204,7 @@
                         android:layout_marginTop="8dp"
                         android:text="Total di Indonesia"
                         android:textColor="@color/soft_black"
-                        android:textSize="24sp" />
+                        android:textSize="22sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -214,9 +216,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Positif:         "
+                            android:text="Positif: "
                             android:textColor="@color/soft_black"
-                            android:textSize="20sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/tvPositifIndonesia_MainFragment"
@@ -224,9 +226,11 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:paddingStart="10dp"
+                            android:paddingEnd="30dp"
+                            android:textAlignment="textEnd"
                             android:text="0"
                             android:textColor="@color/soft_black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             tools:ignore="RtlSymmetry" />
 
                     </LinearLayout>
@@ -241,9 +245,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Sembuh:      "
+                            android:text="Sembuh: "
                             android:textColor="@color/soft_black"
-                            android:textSize="20sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/tvSembuhIndonesia_MainFragment"
@@ -251,9 +255,11 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:paddingStart="10dp"
+                            android:paddingEnd="30dp"
                             android:text="0"
+                            android:textAlignment="textEnd"
                             android:textColor="@color/soft_black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             tools:ignore="RtlSymmetry" />
 
                     </LinearLayout>
@@ -268,19 +274,50 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Meninggal:  "
+                            android:text="Meninggal: "
                             android:textColor="@color/soft_black"
-                            android:textSize="20sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/tvMeninggalIndonesia_MainFragment"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
+                            android:paddingEnd="30dp"
                             android:paddingStart="10dp"
                             android:text="0"
+                            android:textAlignment="textEnd"
                             android:textColor="@color/soft_black"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
+                            tools:ignore="RtlSymmetry" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="di Rawat: "
+                            android:textColor="@color/soft_black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/tvDirawatIndonesia_MainFragment"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="30dp"
+                            android:text="0"
+                            android:textColor="@color/soft_black"
+                            android:textSize="18sp"
+                            android:textAlignment="textEnd"
                             tools:ignore="RtlSymmetry" />
 
                     </LinearLayout>

@@ -2,9 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/dashBoard_MenuNavview"
+        android:icon="@drawable/ic_dashboard_34"
+        android:title="Dashboard"/>
+
+    <item
         android:id="@+id/globalData_MenuNavview"
         android:icon="@drawable/ic_global"
         android:title="Global Data"/>
+
 
     <item
         android:id="@+id/apiSource_Menu_Navview"
